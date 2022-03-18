@@ -46,4 +46,7 @@ Thumbs.db
 /src/main/webapp/userfiles/*
 /target/
 # *.properties
+./chat-server/mvnw
+./chat-server/mvnw.cmd
+./chat-server/.mvn
 
