@@ -11,7 +11,7 @@ target/
 .settings/
 .project
 .classpath
-
+.mvn
 
 # temp ignore
 *.class
