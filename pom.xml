@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>chat-server</module>
+        <module>chat-client</module>
     </modules>
 
 

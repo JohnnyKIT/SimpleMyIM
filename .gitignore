@@ -49,4 +49,6 @@ Thumbs.db
 ./chat-server/mvnw
 ./chat-server/mvnw.cmd
 ./chat-server/.mvn
+./*/mvnw
+./*/mvnw.cmd
 
