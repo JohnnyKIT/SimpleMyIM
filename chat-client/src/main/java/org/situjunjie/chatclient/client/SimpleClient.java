@@ -1,26 +1,24 @@
 package org.situjunjie.chatclient.client;
 
 import io.netty.bootstrap.Bootstrap;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufAllocator;
-import io.netty.buffer.ByteBufUtil;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
-import org.situjunjie.chatclient.handler.EchoHandler;
+import org.situjunjie.chatclient.command.CommandController;
+import org.situjunjie.chatclient.handler.ClientBusinessInboundHandler;
 import org.situjunjie.chatclient.handler.ProtobufDecoder;
 import org.situjunjie.chatclient.handler.ProtobufEncoder;
-import org.situjunjie.chatcommon.bean.msg.ProtoMsg;
+import org.situjunjie.chatcommon.client.ClientSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.net.InetSocketAddress;
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import java.util.UUID;
 
 /**
  * @className: SimpleClient
@@ -40,11 +38,19 @@ public class SimpleClient {
 
     private EventLoopGroup workerGroup;
 
+    public static final ClientSession session = new ClientSession();
+
     @Autowired
     ProtobufDecoder protobufDecoder;
 
     @Autowired
     ProtobufEncoder protobufEncoder;
+
+    @Autowired
+    CommandController commandController;
+
+    @Autowired
+    ClientBusinessInboundHandler clientBusinessInboundHandler;
 
     private Scanner sc = new Scanner(System.in);
 
@@ -56,20 +62,14 @@ public class SimpleClient {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
                         ch.pipeline().addLast(protobufEncoder)
-                                .addLast(protobufDecoder);
+                                .addLast(protobufDecoder).addLast(clientBusinessInboundHandler);
                     }
                 });
         try {
             ChannelFuture channelFuture = bootstrap.connect(new InetSocketAddress(serverAddr, serverPort)).sync();
             if (channelFuture.isSuccess()){
                 log.info("连接服务器成功");
-            }
-            while(true){
-                log.info("输入消息:");
-                String s = sc.nextLine();
-                ProtoMsg.Message message = ProtoMsg.Message.newBuilder()
-                        .setMessageRequest(ProtoMsg.MessageRequest.newBuilder().setContent(s).build()).build();
-                channelFuture.channel().writeAndFlush(message);
+                commandController.run();
             }
 
         } catch (InterruptedException e) {

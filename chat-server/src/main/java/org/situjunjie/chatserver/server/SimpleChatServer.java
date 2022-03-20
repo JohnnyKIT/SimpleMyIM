@@ -1,5 +1,6 @@
 package org.situjunjie.chatserver.server;
 
+import org.situjunjie.chatserver.handler.BusinessInboundHandler;
 import org.situjunjie.chatserver.handler.ProtobufDecoder;
 import org.situjunjie.chatserver.handler.ProtobufEncoder;
 import io.netty.bootstrap.ServerBootstrap;
@@ -34,12 +35,6 @@ public class SimpleChatServer {
 
     private EventLoopGroup workerGroup;
 
-    @Autowired
-    ProtobufDecoder protobufDecoder;
-
-    @Autowired
-    ProtobufEncoder protobufEncoder;
-
 
     /**
      * 服务器启动引导
@@ -55,8 +50,9 @@ public class SimpleChatServer {
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(protobufEncoder)
-                                .addLast(protobufDecoder);
+                        ch.pipeline().addLast(new ProtobufEncoder())
+                                .addLast(new ProtobufDecoder())
+                                .addLast(new BusinessInboundHandler());
                     }
                 });
 
