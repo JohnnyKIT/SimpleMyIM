@@ -1,5 +1,7 @@
 package org.situjunjie.chatserver.server;
 
+import org.situjunjie.chatserver.handler.ProtobufDecoder;
+import org.situjunjie.chatserver.handler.ProtobufEncoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -9,7 +11,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
-import org.situjunjie.chatserver.handler.EchoHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -34,10 +35,15 @@ public class SimpleChatServer {
     private EventLoopGroup workerGroup;
 
     @Autowired
-    private EchoHandler echoHandler;
+    ProtobufDecoder protobufDecoder;
+
+    @Autowired
+    ProtobufEncoder protobufEncoder;
 
 
-
+    /**
+     * 服务器启动引导
+     */
     public void run() {
         ServerBootstrap bootstrap = new ServerBootstrap();
         bossGroup = new NioEventLoopGroup();
@@ -49,7 +55,8 @@ public class SimpleChatServer {
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(echoHandler);
+                        ch.pipeline().addLast(protobufEncoder)
+                                .addLast(protobufDecoder);
                     }
                 });
 

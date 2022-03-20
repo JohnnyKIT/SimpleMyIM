@@ -11,6 +11,9 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.situjunjie.chatclient.handler.EchoHandler;
+import org.situjunjie.chatclient.handler.ProtobufDecoder;
+import org.situjunjie.chatclient.handler.ProtobufEncoder;
+import org.situjunjie.chatcommon.bean.msg.ProtoMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -38,7 +41,10 @@ public class SimpleClient {
     private EventLoopGroup workerGroup;
 
     @Autowired
-    private EchoHandler echoHandler;
+    ProtobufDecoder protobufDecoder;
+
+    @Autowired
+    ProtobufEncoder protobufEncoder;
 
     private Scanner sc = new Scanner(System.in);
 
@@ -49,7 +55,8 @@ public class SimpleClient {
                 .handler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(echoHandler);
+                        ch.pipeline().addLast(protobufEncoder)
+                                .addLast(protobufDecoder);
                     }
                 });
         try {
@@ -60,9 +67,9 @@ public class SimpleClient {
             while(true){
                 log.info("输入消息:");
                 String s = sc.nextLine();
-                ByteBuf byteBuf = ByteBufAllocator.DEFAULT.buffer();
-                byteBuf.writeBytes(s.getBytes(StandardCharsets.UTF_8));
-                channelFuture.channel().writeAndFlush(byteBuf);
+                ProtoMsg.Message message = ProtoMsg.Message.newBuilder()
+                        .setMessageRequest(ProtoMsg.MessageRequest.newBuilder().setContent(s).build()).build();
+                channelFuture.channel().writeAndFlush(message);
             }
 
         } catch (InterruptedException e) {
