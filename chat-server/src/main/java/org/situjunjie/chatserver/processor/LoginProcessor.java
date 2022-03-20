@@ -6,7 +6,6 @@ import org.situjunjie.chatcommon.bean.msg.ProtoMsg;
 import org.situjunjie.chatcommon.client.ClientSession;
 import org.situjunjie.chatserver.sender.MessageSender;
 import org.situjunjie.chatserver.server.ClientSessionMap;
-import org.situjunjie.chatserver.server.SimpleChatServer;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
