@@ -11,6 +11,7 @@
     <modules>
         <module>chat-server</module>
         <module>chat-client</module>
+        <module>chat-common</module>
     </modules>
 
 
@@ -20,6 +21,8 @@
         <spring.boot.version>2.1.12.RELEASE</spring.boot.version>
         <lombok.version>1.16.10</lombok.version>
         <netty.version>4.1.30.Final</netty.version>
+        <protobuf.version>3.6.1</protobuf.version>
+        <project.basedir></project.basedir>
     </properties>
 
     <dependencies>

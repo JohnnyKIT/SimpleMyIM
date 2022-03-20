@@ -1,0 +1,60 @@
+syntax = "proto3";
+package org.situjunjie.chatcommon.bean.msg;
+
+option java_outer_classname = "ProtoMsg";
+
+/** 消息类型枚举 **/
+enum MsgType{
+  LOGIN_REQUEST = 0; //登录请求
+  LOGIN_RESPONSE = 1; //登录响应
+  LOGOUT_REQUEST = 2; //注销请求
+  LOGOU_RESPONSE = 3; //注销响应
+  HEART_BEAT = 4; //心跳
+  MESSAGE_REQUEST = 5 ;//IM
+  MESSAGE_RESPONSE = 6;
+  MESSAGE_NOTIFICATION = 7; //通知
+}
+
+message LoginRequest{
+  string uid = 1;
+  string username = 2;
+  string password = 3;
+}
+
+message LoginReponse{
+  bool result = 1;
+  string info = 2;
+}
+
+message HeartBeat{
+  string sessionid = 1;
+}
+
+message MessageRequest{
+  string from = 1;
+  string to = 2;
+  string content = 3;
+}
+
+message MessageResponse{
+  bool result = 1;
+  string info = 2;
+}
+
+message MessageNotification{
+  string to = 1;
+  string content = 2;
+}
+
+message Message{
+  MsgType type = 1;
+  string sessionid =2;
+  LoginRequest loginRequest = 3;
+  LoginReponse loginResponse = 4;
+  HeartBeat heartBeat = 5;
+  MessageRequest messageRequest = 6;
+  MessageResponse messageResponse = 7;
+  MessageNotification messageNotification = 8;
+
+
+}

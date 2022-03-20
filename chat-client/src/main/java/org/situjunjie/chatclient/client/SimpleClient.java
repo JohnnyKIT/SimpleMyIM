@@ -58,7 +58,7 @@ public class SimpleClient {
                 log.info("连接服务器成功");
             }
             while(true){
-                log.info("输入消息：\n");
+                log.info("输入消息:");
                 String s = sc.nextLine();
                 ByteBuf byteBuf = ByteBufAllocator.DEFAULT.buffer();
                 byteBuf.writeBytes(s.getBytes(StandardCharsets.UTF_8));
