@@ -1,6 +1,8 @@
 # SimpleMyIM
 简易的基于Netty实现的即时多人在线聊天IM
 
+这个项目用于把之前学到Netty融会贯通一下，初学Netty的同学可以联系一下
+
 ## 项目启动
 1.启动server
 
