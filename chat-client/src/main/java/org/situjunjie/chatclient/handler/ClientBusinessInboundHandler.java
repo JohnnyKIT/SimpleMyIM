@@ -40,6 +40,14 @@ public class ClientBusinessInboundHandler extends ChannelInboundHandlerAdapter {
                     }
                 });
                 break;
+            case MESSAGE_RESPONSE:
+                ThreadUtil.getMixExecutor().execute(()->{
+                    ProtoMsg.MessageResponse messageResponse = message.getMessageResponse();
+                    if(messageResponse.getResult()){
+                        log.info(messageResponse.getFrom()+":"+messageResponse.getInfo());
+                    }
+                });
+                break;
             default:
                 break;
         }

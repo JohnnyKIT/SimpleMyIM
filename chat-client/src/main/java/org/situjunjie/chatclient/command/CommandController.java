@@ -20,7 +20,10 @@ public class CommandController {
 
     private LoginCommand loginCommand = new LoginCommand();
 
+    private ChatCommand chatCommand = new ChatCommand();
+
     private Map<Integer,BaseCommand> commandMap;
+
 
     public static final String THREAD_NAME = "命令线程";
 
@@ -37,6 +40,7 @@ public class CommandController {
     private void initCommandMap(){
         commandMap = new HashMap<>();
         commandMap.put(loginCommand.getKey(),loginCommand);
+        commandMap.put(chatCommand.getKey(), chatCommand);
     }
 
     public void run(){

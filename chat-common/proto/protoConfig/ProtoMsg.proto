@@ -38,7 +38,8 @@ message MessageRequest{
 
 message MessageResponse{
   bool result = 1;
-  string info = 2;
+  string from = 2;
+  string info = 3;
 }
 
 message MessageNotification{

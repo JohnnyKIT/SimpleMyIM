@@ -28,7 +28,7 @@ public class LoginProcessor {
             session.setSessionId(UUID.randomUUID().toString());
             session.setChannel(channel);
             session.setUserId(message.getLoginRequest().getUsername());
-            ClientSessionMap.putSession(session.getSessionId(), session);
+            ClientSessionMap.putSession(session.getUserId(), session);
             responseClient(channel,session);
             log.info("{} 用户登录成功,当前在线人数:{}",session.getUserId(), ClientSessionMap.count());
         }

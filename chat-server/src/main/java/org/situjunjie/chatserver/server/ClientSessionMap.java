@@ -17,13 +17,17 @@ public class ClientSessionMap {
 
     private static final Map<String, List<ClientSession>> sessionMap = new HashMap();
 
-    public static void putSession(String sessionId,ClientSession session){
-        List<ClientSession> clientSessions = sessionMap.get(sessionId);
+    public static void putSession(String userId,ClientSession session){
+        List<ClientSession> clientSessions = sessionMap.get(userId);
         if(clientSessions == null){
             clientSessions = new ArrayList<>();
             clientSessions.add(session);
-            sessionMap.put(sessionId,clientSessions);
+            sessionMap.put(userId,clientSessions);
         }
+    }
+
+    public static final Map<String,List<ClientSession>> getInstance(){
+        return sessionMap;
     }
 
     public static List<ClientSession> getSessionList(String sessionId){

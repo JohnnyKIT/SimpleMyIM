@@ -1,6 +1,7 @@
 package org.situjunjie.chatclient.command;
 
 import lombok.extern.slf4j.Slf4j;
+import org.situjunjie.chatclient.client.SimpleClient;
 import org.situjunjie.chatclient.processor.LoginProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,10 @@ public class LoginCommand implements BaseCommand{
     @Override
     public void exec(Scanner scanner) {
         String[] split;
+        if (SimpleClient.session.getChannel() ==null){
+            log.error("已经登录，请勿重复登录！");
+            return;
+        }
         while(true){
             log.info("请输入登录用户名和密码(root@123456)");
             String input = scanner.nextLine();
