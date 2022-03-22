@@ -22,6 +22,8 @@ public class CommandController {
 
     private ChatCommand chatCommand = new ChatCommand();
 
+    private LoginUserCommand loginUserCommand = new LoginUserCommand();
+
     private Map<Integer,BaseCommand> commandMap;
 
 
@@ -41,6 +43,7 @@ public class CommandController {
         commandMap = new HashMap<>();
         commandMap.put(loginCommand.getKey(),loginCommand);
         commandMap.put(chatCommand.getKey(), chatCommand);
+        commandMap.put(loginUserCommand.getKey(), loginUserCommand);
     }
 
     public void run(){

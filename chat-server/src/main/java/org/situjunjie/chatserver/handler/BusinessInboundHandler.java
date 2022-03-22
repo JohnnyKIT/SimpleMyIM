@@ -5,6 +5,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.situjunjie.chatcommon.bean.msg.ProtoMsg;
 import org.situjunjie.chatserver.processor.ChatProcessor;
 import org.situjunjie.chatserver.processor.LoginProcessor;
+import org.situjunjie.chatserver.processor.OnlineUserProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import util.ThreadUtil;
@@ -26,6 +27,9 @@ public class BusinessInboundHandler extends ChannelInboundHandlerAdapter {
     @Autowired
     ChatProcessor chatProcessor = new ChatProcessor();
 
+    @Autowired
+    OnlineUserProcessor onlineUserProcessor = new OnlineUserProcessor();
+
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ProtoMsg.Message message = (ProtoMsg.Message) msg;
@@ -36,8 +40,14 @@ public class BusinessInboundHandler extends ChannelInboundHandlerAdapter {
             switch (msgType){
                 case LOGIN_REQUEST://登录请求
                     loginProcessor.login(message,ctx.channel());
+                    break;
                 case MESSAGE_REQUEST:
                     chatProcessor.handleChant(message,ctx.channel());
+                    break;
+                case ONLINE_USER_REQUEST:
+                    onlineUserProcessor.sendOnlineUserList(message,ctx.channel());
+                default:
+                    break;
             }
         });
         super.channelRead(ctx, msg);

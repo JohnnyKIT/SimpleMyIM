@@ -83,6 +83,22 @@ public final class ProtoMsg {
      * <code>MESSAGE_NOTIFICATION = 7;</code>
      */
     MESSAGE_NOTIFICATION(7),
+    /**
+     * <pre>
+     *在线用户列表请求
+     * </pre>
+     *
+     * <code>ONLINE_USER_REQUEST = 8;</code>
+     */
+    ONLINE_USER_REQUEST(8),
+    /**
+     * <pre>
+     *在线用户列表返回
+     * </pre>
+     *
+     * <code>ONLINE_USER_RESPONSE = 9;</code>
+     */
+    ONLINE_USER_RESPONSE(9),
     UNRECOGNIZED(-1),
     ;
 
@@ -146,6 +162,22 @@ public final class ProtoMsg {
      * <code>MESSAGE_NOTIFICATION = 7;</code>
      */
     public static final int MESSAGE_NOTIFICATION_VALUE = 7;
+    /**
+     * <pre>
+     *在线用户列表请求
+     * </pre>
+     *
+     * <code>ONLINE_USER_REQUEST = 8;</code>
+     */
+    public static final int ONLINE_USER_REQUEST_VALUE = 8;
+    /**
+     * <pre>
+     *在线用户列表返回
+     * </pre>
+     *
+     * <code>ONLINE_USER_RESPONSE = 9;</code>
+     */
+    public static final int ONLINE_USER_RESPONSE_VALUE = 9;
 
 
     public final int getNumber() {
@@ -174,6 +206,8 @@ public final class ProtoMsg {
         case 5: return MESSAGE_REQUEST;
         case 6: return MESSAGE_RESPONSE;
         case 7: return MESSAGE_NOTIFICATION;
+        case 8: return ONLINE_USER_REQUEST;
+        case 9: return ONLINE_USER_RESPONSE;
         default: return null;
       }
     }
@@ -4476,6 +4510,1170 @@ public final class ProtoMsg {
 
   }
 
+  public interface OnlineUserRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.situjunjie.chatcommon.bean.msg.OnlineUserRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string from = 1;</code>
+     */
+    java.lang.String getFrom();
+    /**
+     * <code>string from = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getFromBytes();
+  }
+  /**
+   * Protobuf type {@code org.situjunjie.chatcommon.bean.msg.OnlineUserRequest}
+   */
+  public  static final class OnlineUserRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.situjunjie.chatcommon.bean.msg.OnlineUserRequest)
+      OnlineUserRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use OnlineUserRequest.newBuilder() to construct.
+    private OnlineUserRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private OnlineUserRequest() {
+      from_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OnlineUserRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              from_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.situjunjie.chatcommon.bean.msg.ProtoMsg.internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.situjunjie.chatcommon.bean.msg.ProtoMsg.internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.class, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.Builder.class);
+    }
+
+    public static final int FROM_FIELD_NUMBER = 1;
+    private volatile java.lang.Object from_;
+    /**
+     * <code>string from = 1;</code>
+     */
+    public java.lang.String getFrom() {
+      java.lang.Object ref = from_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        from_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string from = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFromBytes() {
+      java.lang.Object ref = from_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        from_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFromBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, from_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFromBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, from_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest)) {
+        return super.equals(obj);
+      }
+      org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest other = (org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest) obj;
+
+      boolean result = true;
+      result = result && getFrom()
+          .equals(other.getFrom());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FROM_FIELD_NUMBER;
+      hash = (53 * hash) + getFrom().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.situjunjie.chatcommon.bean.msg.OnlineUserRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.situjunjie.chatcommon.bean.msg.OnlineUserRequest)
+        org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.situjunjie.chatcommon.bean.msg.ProtoMsg.internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.situjunjie.chatcommon.bean.msg.ProtoMsg.internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.class, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.Builder.class);
+      }
+
+      // Construct using org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        from_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.situjunjie.chatcommon.bean.msg.ProtoMsg.internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest getDefaultInstanceForType() {
+        return org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest build() {
+        org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest buildPartial() {
+        org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest result = new org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest(this);
+        result.from_ = from_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest) {
+          return mergeFrom((org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest other) {
+        if (other == org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.getDefaultInstance()) return this;
+        if (!other.getFrom().isEmpty()) {
+          from_ = other.from_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object from_ = "";
+      /**
+       * <code>string from = 1;</code>
+       */
+      public java.lang.String getFrom() {
+        java.lang.Object ref = from_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          from_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string from = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFromBytes() {
+        java.lang.Object ref = from_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          from_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string from = 1;</code>
+       */
+      public Builder setFrom(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        from_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string from = 1;</code>
+       */
+      public Builder clearFrom() {
+        
+        from_ = getDefaultInstance().getFrom();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string from = 1;</code>
+       */
+      public Builder setFromBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        from_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.situjunjie.chatcommon.bean.msg.OnlineUserRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.situjunjie.chatcommon.bean.msg.OnlineUserRequest)
+    private static final org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest();
+    }
+
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<OnlineUserRequest>
+        PARSER = new com.google.protobuf.AbstractParser<OnlineUserRequest>() {
+      @java.lang.Override
+      public OnlineUserRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OnlineUserRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<OnlineUserRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OnlineUserRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface OnlineUserResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.situjunjie.chatcommon.bean.msg.OnlineUserResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool result = 1;</code>
+     */
+    boolean getResult();
+
+    /**
+     * <code>string content = 2;</code>
+     */
+    java.lang.String getContent();
+    /**
+     * <code>string content = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+  }
+  /**
+   * Protobuf type {@code org.situjunjie.chatcommon.bean.msg.OnlineUserResponse}
+   */
+  public  static final class OnlineUserResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.situjunjie.chatcommon.bean.msg.OnlineUserResponse)
+      OnlineUserResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use OnlineUserResponse.newBuilder() to construct.
+    private OnlineUserResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private OnlineUserResponse() {
+      result_ = false;
+      content_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OnlineUserResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              result_ = input.readBool();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.situjunjie.chatcommon.bean.msg.ProtoMsg.internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.situjunjie.chatcommon.bean.msg.ProtoMsg.internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.class, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.Builder.class);
+    }
+
+    public static final int RESULT_FIELD_NUMBER = 1;
+    private boolean result_;
+    /**
+     * <code>bool result = 1;</code>
+     */
+    public boolean getResult() {
+      return result_;
+    }
+
+    public static final int CONTENT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object content_;
+    /**
+     * <code>string content = 2;</code>
+     */
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string content = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (result_ != false) {
+        output.writeBool(1, result_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (result_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, result_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse)) {
+        return super.equals(obj);
+      }
+      org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse other = (org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse) obj;
+
+      boolean result = true;
+      result = result && (getResult()
+          == other.getResult());
+      result = result && getContent()
+          .equals(other.getContent());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RESULT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getResult());
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.situjunjie.chatcommon.bean.msg.OnlineUserResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.situjunjie.chatcommon.bean.msg.OnlineUserResponse)
+        org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.situjunjie.chatcommon.bean.msg.ProtoMsg.internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.situjunjie.chatcommon.bean.msg.ProtoMsg.internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.class, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.Builder.class);
+      }
+
+      // Construct using org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        result_ = false;
+
+        content_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.situjunjie.chatcommon.bean.msg.ProtoMsg.internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse getDefaultInstanceForType() {
+        return org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse build() {
+        org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse buildPartial() {
+        org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse result = new org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse(this);
+        result.result_ = result_;
+        result.content_ = content_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse) {
+          return mergeFrom((org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse other) {
+        if (other == org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.getDefaultInstance()) return this;
+        if (other.getResult() != false) {
+          setResult(other.getResult());
+        }
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean result_ ;
+      /**
+       * <code>bool result = 1;</code>
+       */
+      public boolean getResult() {
+        return result_;
+      }
+      /**
+       * <code>bool result = 1;</code>
+       */
+      public Builder setResult(boolean value) {
+        
+        result_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool result = 1;</code>
+       */
+      public Builder clearResult() {
+        
+        result_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object content_ = "";
+      /**
+       * <code>string content = 2;</code>
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string content = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string content = 2;</code>
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 2;</code>
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 2;</code>
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.situjunjie.chatcommon.bean.msg.OnlineUserResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.situjunjie.chatcommon.bean.msg.OnlineUserResponse)
+    private static final org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse();
+    }
+
+    public static org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<OnlineUserResponse>
+        PARSER = new com.google.protobuf.AbstractParser<OnlineUserResponse>() {
+      @java.lang.Override
+      public OnlineUserResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OnlineUserResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<OnlineUserResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OnlineUserResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface MessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:org.situjunjie.chatcommon.bean.msg.Message)
       com.google.protobuf.MessageOrBuilder {
@@ -4576,6 +5774,32 @@ public final class ProtoMsg {
      * <code>.org.situjunjie.chatcommon.bean.msg.MessageNotification messageNotification = 8;</code>
      */
     org.situjunjie.chatcommon.bean.msg.ProtoMsg.MessageNotificationOrBuilder getMessageNotificationOrBuilder();
+
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+     */
+    boolean hasOnlineUserRequest();
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+     */
+    org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest getOnlineUserRequest();
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+     */
+    org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequestOrBuilder getOnlineUserRequestOrBuilder();
+
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+     */
+    boolean hasOnlineUserResponse();
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+     */
+    org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse getOnlineUserResponse();
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+     */
+    org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponseOrBuilder getOnlineUserResponseOrBuilder();
   }
   /**
    * Protobuf type {@code org.situjunjie.chatcommon.bean.msg.Message}
@@ -4704,6 +5928,32 @@ public final class ProtoMsg {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(messageNotification_);
                 messageNotification_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 74: {
+              org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.Builder subBuilder = null;
+              if (onlineUserRequest_ != null) {
+                subBuilder = onlineUserRequest_.toBuilder();
+              }
+              onlineUserRequest_ = input.readMessage(org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(onlineUserRequest_);
+                onlineUserRequest_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 82: {
+              org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.Builder subBuilder = null;
+              if (onlineUserResponse_ != null) {
+                subBuilder = onlineUserResponse_.toBuilder();
+              }
+              onlineUserResponse_ = input.readMessage(org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(onlineUserResponse_);
+                onlineUserResponse_ = subBuilder.buildPartial();
               }
 
               break;
@@ -4917,6 +6167,48 @@ public final class ProtoMsg {
       return getMessageNotification();
     }
 
+    public static final int ONLINEUSERREQUEST_FIELD_NUMBER = 9;
+    private org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest onlineUserRequest_;
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+     */
+    public boolean hasOnlineUserRequest() {
+      return onlineUserRequest_ != null;
+    }
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+     */
+    public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest getOnlineUserRequest() {
+      return onlineUserRequest_ == null ? org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.getDefaultInstance() : onlineUserRequest_;
+    }
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+     */
+    public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequestOrBuilder getOnlineUserRequestOrBuilder() {
+      return getOnlineUserRequest();
+    }
+
+    public static final int ONLINEUSERRESPONSE_FIELD_NUMBER = 10;
+    private org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse onlineUserResponse_;
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+     */
+    public boolean hasOnlineUserResponse() {
+      return onlineUserResponse_ != null;
+    }
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+     */
+    public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse getOnlineUserResponse() {
+      return onlineUserResponse_ == null ? org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.getDefaultInstance() : onlineUserResponse_;
+    }
+    /**
+     * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+     */
+    public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponseOrBuilder getOnlineUserResponseOrBuilder() {
+      return getOnlineUserResponse();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4954,6 +6246,12 @@ public final class ProtoMsg {
       }
       if (messageNotification_ != null) {
         output.writeMessage(8, getMessageNotification());
+      }
+      if (onlineUserRequest_ != null) {
+        output.writeMessage(9, getOnlineUserRequest());
+      }
+      if (onlineUserResponse_ != null) {
+        output.writeMessage(10, getOnlineUserResponse());
       }
       unknownFields.writeTo(output);
     }
@@ -4994,6 +6292,14 @@ public final class ProtoMsg {
       if (messageNotification_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getMessageNotification());
+      }
+      if (onlineUserRequest_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getOnlineUserRequest());
+      }
+      if (onlineUserResponse_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getOnlineUserResponse());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5044,6 +6350,16 @@ public final class ProtoMsg {
         result = result && getMessageNotification()
             .equals(other.getMessageNotification());
       }
+      result = result && (hasOnlineUserRequest() == other.hasOnlineUserRequest());
+      if (hasOnlineUserRequest()) {
+        result = result && getOnlineUserRequest()
+            .equals(other.getOnlineUserRequest());
+      }
+      result = result && (hasOnlineUserResponse() == other.hasOnlineUserResponse());
+      if (hasOnlineUserResponse()) {
+        result = result && getOnlineUserResponse()
+            .equals(other.getOnlineUserResponse());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5082,6 +6398,14 @@ public final class ProtoMsg {
       if (hasMessageNotification()) {
         hash = (37 * hash) + MESSAGENOTIFICATION_FIELD_NUMBER;
         hash = (53 * hash) + getMessageNotification().hashCode();
+      }
+      if (hasOnlineUserRequest()) {
+        hash = (37 * hash) + ONLINEUSERREQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getOnlineUserRequest().hashCode();
+      }
+      if (hasOnlineUserResponse()) {
+        hash = (37 * hash) + ONLINEUSERRESPONSE_FIELD_NUMBER;
+        hash = (53 * hash) + getOnlineUserResponse().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5256,6 +6580,18 @@ public final class ProtoMsg {
           messageNotification_ = null;
           messageNotificationBuilder_ = null;
         }
+        if (onlineUserRequestBuilder_ == null) {
+          onlineUserRequest_ = null;
+        } else {
+          onlineUserRequest_ = null;
+          onlineUserRequestBuilder_ = null;
+        }
+        if (onlineUserResponseBuilder_ == null) {
+          onlineUserResponse_ = null;
+        } else {
+          onlineUserResponse_ = null;
+          onlineUserResponseBuilder_ = null;
+        }
         return this;
       }
 
@@ -5313,6 +6649,16 @@ public final class ProtoMsg {
           result.messageNotification_ = messageNotification_;
         } else {
           result.messageNotification_ = messageNotificationBuilder_.build();
+        }
+        if (onlineUserRequestBuilder_ == null) {
+          result.onlineUserRequest_ = onlineUserRequest_;
+        } else {
+          result.onlineUserRequest_ = onlineUserRequestBuilder_.build();
+        }
+        if (onlineUserResponseBuilder_ == null) {
+          result.onlineUserResponse_ = onlineUserResponse_;
+        } else {
+          result.onlineUserResponse_ = onlineUserResponseBuilder_.build();
         }
         onBuilt();
         return result;
@@ -5386,6 +6732,12 @@ public final class ProtoMsg {
         }
         if (other.hasMessageNotification()) {
           mergeMessageNotification(other.getMessageNotification());
+        }
+        if (other.hasOnlineUserRequest()) {
+          mergeOnlineUserRequest(other.getOnlineUserRequest());
+        }
+        if (other.hasOnlineUserResponse()) {
+          mergeOnlineUserResponse(other.getOnlineUserResponse());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6231,6 +7583,240 @@ public final class ProtoMsg {
         }
         return messageNotificationBuilder_;
       }
+
+      private org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest onlineUserRequest_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.Builder, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequestOrBuilder> onlineUserRequestBuilder_;
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+       */
+      public boolean hasOnlineUserRequest() {
+        return onlineUserRequestBuilder_ != null || onlineUserRequest_ != null;
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+       */
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest getOnlineUserRequest() {
+        if (onlineUserRequestBuilder_ == null) {
+          return onlineUserRequest_ == null ? org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.getDefaultInstance() : onlineUserRequest_;
+        } else {
+          return onlineUserRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+       */
+      public Builder setOnlineUserRequest(org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest value) {
+        if (onlineUserRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          onlineUserRequest_ = value;
+          onChanged();
+        } else {
+          onlineUserRequestBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+       */
+      public Builder setOnlineUserRequest(
+          org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.Builder builderForValue) {
+        if (onlineUserRequestBuilder_ == null) {
+          onlineUserRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          onlineUserRequestBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+       */
+      public Builder mergeOnlineUserRequest(org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest value) {
+        if (onlineUserRequestBuilder_ == null) {
+          if (onlineUserRequest_ != null) {
+            onlineUserRequest_ =
+              org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.newBuilder(onlineUserRequest_).mergeFrom(value).buildPartial();
+          } else {
+            onlineUserRequest_ = value;
+          }
+          onChanged();
+        } else {
+          onlineUserRequestBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+       */
+      public Builder clearOnlineUserRequest() {
+        if (onlineUserRequestBuilder_ == null) {
+          onlineUserRequest_ = null;
+          onChanged();
+        } else {
+          onlineUserRequest_ = null;
+          onlineUserRequestBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+       */
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.Builder getOnlineUserRequestBuilder() {
+        
+        onChanged();
+        return getOnlineUserRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+       */
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequestOrBuilder getOnlineUserRequestOrBuilder() {
+        if (onlineUserRequestBuilder_ != null) {
+          return onlineUserRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return onlineUserRequest_ == null ?
+              org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.getDefaultInstance() : onlineUserRequest_;
+        }
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserRequest onlineUserRequest = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.Builder, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequestOrBuilder> 
+          getOnlineUserRequestFieldBuilder() {
+        if (onlineUserRequestBuilder_ == null) {
+          onlineUserRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequest.Builder, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserRequestOrBuilder>(
+                  getOnlineUserRequest(),
+                  getParentForChildren(),
+                  isClean());
+          onlineUserRequest_ = null;
+        }
+        return onlineUserRequestBuilder_;
+      }
+
+      private org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse onlineUserResponse_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.Builder, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponseOrBuilder> onlineUserResponseBuilder_;
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+       */
+      public boolean hasOnlineUserResponse() {
+        return onlineUserResponseBuilder_ != null || onlineUserResponse_ != null;
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+       */
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse getOnlineUserResponse() {
+        if (onlineUserResponseBuilder_ == null) {
+          return onlineUserResponse_ == null ? org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.getDefaultInstance() : onlineUserResponse_;
+        } else {
+          return onlineUserResponseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+       */
+      public Builder setOnlineUserResponse(org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse value) {
+        if (onlineUserResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          onlineUserResponse_ = value;
+          onChanged();
+        } else {
+          onlineUserResponseBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+       */
+      public Builder setOnlineUserResponse(
+          org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.Builder builderForValue) {
+        if (onlineUserResponseBuilder_ == null) {
+          onlineUserResponse_ = builderForValue.build();
+          onChanged();
+        } else {
+          onlineUserResponseBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+       */
+      public Builder mergeOnlineUserResponse(org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse value) {
+        if (onlineUserResponseBuilder_ == null) {
+          if (onlineUserResponse_ != null) {
+            onlineUserResponse_ =
+              org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.newBuilder(onlineUserResponse_).mergeFrom(value).buildPartial();
+          } else {
+            onlineUserResponse_ = value;
+          }
+          onChanged();
+        } else {
+          onlineUserResponseBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+       */
+      public Builder clearOnlineUserResponse() {
+        if (onlineUserResponseBuilder_ == null) {
+          onlineUserResponse_ = null;
+          onChanged();
+        } else {
+          onlineUserResponse_ = null;
+          onlineUserResponseBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+       */
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.Builder getOnlineUserResponseBuilder() {
+        
+        onChanged();
+        return getOnlineUserResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+       */
+      public org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponseOrBuilder getOnlineUserResponseOrBuilder() {
+        if (onlineUserResponseBuilder_ != null) {
+          return onlineUserResponseBuilder_.getMessageOrBuilder();
+        } else {
+          return onlineUserResponse_ == null ?
+              org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.getDefaultInstance() : onlineUserResponse_;
+        }
+      }
+      /**
+       * <code>.org.situjunjie.chatcommon.bean.msg.OnlineUserResponse OnlineUserResponse = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.Builder, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponseOrBuilder> 
+          getOnlineUserResponseFieldBuilder() {
+        if (onlineUserResponseBuilder_ == null) {
+          onlineUserResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponse.Builder, org.situjunjie.chatcommon.bean.msg.ProtoMsg.OnlineUserResponseOrBuilder>(
+                  getOnlineUserResponse(),
+                  getParentForChildren(),
+                  isClean());
+          onlineUserResponse_ = null;
+        }
+        return onlineUserResponseBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6315,6 +7901,16 @@ public final class ProtoMsg {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_situjunjie_chatcommon_bean_msg_MessageNotification_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_situjunjie_chatcommon_bean_msg_Message_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -6337,25 +7933,33 @@ public final class ProtoMsg {
       "\017\n\007content\030\003 \001(\t\"=\n\017MessageResponse\022\016\n\006r" +
       "esult\030\001 \001(\010\022\014\n\004from\030\002 \001(\t\022\014\n\004info\030\003 \001(\t\"" +
       "2\n\023MessageNotification\022\n\n\002to\030\001 \001(\t\022\017\n\007co" +
-      "ntent\030\002 \001(\t\"\232\004\n\007Message\0229\n\004type\030\001 \001(\0162+." +
-      "org.situjunjie.chatcommon.bean.msg.MsgTy" +
-      "pe\022\021\n\tsessionid\030\002 \001(\t\022F\n\014loginRequest\030\003 " +
-      "\001(\01320.org.situjunjie.chatcommon.bean.msg" +
-      ".LoginRequest\022G\n\rloginResponse\030\004 \001(\01320.o" +
-      "rg.situjunjie.chatcommon.bean.msg.LoginR" +
-      "eponse\022@\n\theartBeat\030\005 \001(\0132-.org.situjunj" +
-      "ie.chatcommon.bean.msg.HeartBeat\022J\n\016mess" +
-      "ageRequest\030\006 \001(\01322.org.situjunjie.chatco" +
-      "mmon.bean.msg.MessageRequest\022L\n\017messageR" +
-      "esponse\030\007 \001(\01323.org.situjunjie.chatcommo" +
-      "n.bean.msg.MessageResponse\022T\n\023messageNot" +
-      "ification\030\010 \001(\01327.org.situjunjie.chatcom" +
-      "mon.bean.msg.MessageNotification*\255\001\n\007Msg" +
-      "Type\022\021\n\rLOGIN_REQUEST\020\000\022\022\n\016LOGIN_RESPONS" +
-      "E\020\001\022\022\n\016LOGOUT_REQUEST\020\002\022\022\n\016LOGOU_RESPONS" +
-      "E\020\003\022\016\n\nHEART_BEAT\020\004\022\023\n\017MESSAGE_REQUEST\020\005" +
-      "\022\024\n\020MESSAGE_RESPONSE\020\006\022\030\n\024MESSAGE_NOTIFI" +
-      "CATION\020\007B\nB\010ProtoMsgb\006proto3"
+      "ntent\030\002 \001(\t\"!\n\021OnlineUserRequest\022\014\n\004from" +
+      "\030\001 \001(\t\"5\n\022OnlineUserResponse\022\016\n\006result\030\001" +
+      " \001(\010\022\017\n\007content\030\002 \001(\t\"\300\005\n\007Message\0229\n\004typ" +
+      "e\030\001 \001(\0162+.org.situjunjie.chatcommon.bean" +
+      ".msg.MsgType\022\021\n\tsessionid\030\002 \001(\t\022F\n\014login" +
+      "Request\030\003 \001(\01320.org.situjunjie.chatcommo" +
+      "n.bean.msg.LoginRequest\022G\n\rloginResponse" +
+      "\030\004 \001(\01320.org.situjunjie.chatcommon.bean." +
+      "msg.LoginReponse\022@\n\theartBeat\030\005 \001(\0132-.or" +
+      "g.situjunjie.chatcommon.bean.msg.HeartBe" +
+      "at\022J\n\016messageRequest\030\006 \001(\01322.org.situjun" +
+      "jie.chatcommon.bean.msg.MessageRequest\022L" +
+      "\n\017messageResponse\030\007 \001(\01323.org.situjunjie" +
+      ".chatcommon.bean.msg.MessageResponse\022T\n\023" +
+      "messageNotification\030\010 \001(\01327.org.situjunj" +
+      "ie.chatcommon.bean.msg.MessageNotificati" +
+      "on\022P\n\021onlineUserRequest\030\t \001(\01325.org.situ" +
+      "junjie.chatcommon.bean.msg.OnlineUserReq" +
+      "uest\022R\n\022OnlineUserResponse\030\n \001(\01326.org.s" +
+      "itujunjie.chatcommon.bean.msg.OnlineUser" +
+      "Response*\340\001\n\007MsgType\022\021\n\rLOGIN_REQUEST\020\000\022" +
+      "\022\n\016LOGIN_RESPONSE\020\001\022\022\n\016LOGOUT_REQUEST\020\002\022" +
+      "\022\n\016LOGOU_RESPONSE\020\003\022\016\n\nHEART_BEAT\020\004\022\023\n\017M" +
+      "ESSAGE_REQUEST\020\005\022\024\n\020MESSAGE_RESPONSE\020\006\022\030" +
+      "\n\024MESSAGE_NOTIFICATION\020\007\022\027\n\023ONLINE_USER_" +
+      "REQUEST\020\010\022\030\n\024ONLINE_USER_RESPONSE\020\tB\nB\010P" +
+      "rotoMsgb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6405,12 +8009,24 @@ public final class ProtoMsg {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_situjunjie_chatcommon_bean_msg_MessageNotification_descriptor,
         new java.lang.String[] { "To", "Content", });
-    internal_static_org_situjunjie_chatcommon_bean_msg_Message_descriptor =
+    internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
+    internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserRequest_descriptor,
+        new java.lang.String[] { "From", });
+    internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_situjunjie_chatcommon_bean_msg_OnlineUserResponse_descriptor,
+        new java.lang.String[] { "Result", "Content", });
+    internal_static_org_situjunjie_chatcommon_bean_msg_Message_descriptor =
+      getDescriptor().getMessageTypes().get(8);
     internal_static_org_situjunjie_chatcommon_bean_msg_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_situjunjie_chatcommon_bean_msg_Message_descriptor,
-        new java.lang.String[] { "Type", "Sessionid", "LoginRequest", "LoginResponse", "HeartBeat", "MessageRequest", "MessageResponse", "MessageNotification", });
+        new java.lang.String[] { "Type", "Sessionid", "LoginRequest", "LoginResponse", "HeartBeat", "MessageRequest", "MessageResponse", "MessageNotification", "OnlineUserRequest", "OnlineUserResponse", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

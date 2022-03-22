@@ -13,6 +13,8 @@ enum MsgType{
   MESSAGE_REQUEST = 5 ;//IM
   MESSAGE_RESPONSE = 6;
   MESSAGE_NOTIFICATION = 7; //通知
+  ONLINE_USER_REQUEST = 8;//在线用户列表请求
+  ONLINE_USER_RESPONSE = 9 ;//在线用户列表返回
 }
 
 message LoginRequest{
@@ -47,6 +49,15 @@ message MessageNotification{
   string content = 2;
 }
 
+message OnlineUserRequest{
+  string from = 1;
+}
+
+message OnlineUserResponse{
+  bool result = 1;
+  string content=2;
+}
+
 message Message{
   MsgType type = 1;
   string sessionid =2;
@@ -56,6 +67,8 @@ message Message{
   MessageRequest messageRequest = 6;
   MessageResponse messageResponse = 7;
   MessageNotification messageNotification = 8;
+  OnlineUserRequest onlineUserRequest = 9;
+  OnlineUserResponse OnlineUserResponse = 10;
 
 
 }

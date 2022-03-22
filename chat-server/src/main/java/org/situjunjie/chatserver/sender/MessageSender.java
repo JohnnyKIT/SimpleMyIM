@@ -4,7 +4,6 @@ import io.netty.channel.Channel;
 import org.situjunjie.chatcommon.bean.msg.ProtoMsg;
 import org.situjunjie.chatcommon.client.ClientSession;
 import org.situjunjie.chatserver.server.ClientSessionMap;
-import org.situjunjie.chatserver.server.SimpleChatServer;
 
 import java.util.List;
 import java.util.Map;

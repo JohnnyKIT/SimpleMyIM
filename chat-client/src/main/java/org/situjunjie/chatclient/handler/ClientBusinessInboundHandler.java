@@ -48,6 +48,15 @@ public class ClientBusinessInboundHandler extends ChannelInboundHandlerAdapter {
                     }
                 });
                 break;
+            case ONLINE_USER_RESPONSE:
+                ThreadUtil.getMixExecutor().execute(()->{
+                    ProtoMsg.OnlineUserResponse onlineUserResponse = message.getOnlineUserResponse();
+                    if(onlineUserResponse.getResult()){
+                        String content = onlineUserResponse.getContent();
+                        log.info("当前其他在线用户：{}",content);
+                    }
+                });
+                break;
             default:
                 break;
         }
