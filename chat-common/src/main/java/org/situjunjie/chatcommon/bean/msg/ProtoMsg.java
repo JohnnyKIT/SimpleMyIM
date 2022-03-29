@@ -3100,6 +3100,16 @@ public final class ProtoMsg {
      */
     com.google.protobuf.ByteString
         getInfoBytes();
+
+    /**
+     * <code>string to = 4;</code>
+     */
+    java.lang.String getTo();
+    /**
+     * <code>string to = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getToBytes();
   }
   /**
    * Protobuf type {@code org.situjunjie.chatcommon.bean.msg.MessageResponse}
@@ -3117,6 +3127,7 @@ public final class ProtoMsg {
       result_ = false;
       from_ = "";
       info_ = "";
+      to_ = "";
     }
 
     @java.lang.Override
@@ -3158,6 +3169,12 @@ public final class ProtoMsg {
               java.lang.String s = input.readStringRequireUtf8();
 
               info_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              to_ = s;
               break;
             }
             default: {
@@ -3269,6 +3286,40 @@ public final class ProtoMsg {
       }
     }
 
+    public static final int TO_FIELD_NUMBER = 4;
+    private volatile java.lang.Object to_;
+    /**
+     * <code>string to = 4;</code>
+     */
+    public java.lang.String getTo() {
+      java.lang.Object ref = to_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        to_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string to = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getToBytes() {
+      java.lang.Object ref = to_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        to_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3292,6 +3343,9 @@ public final class ProtoMsg {
       if (!getInfoBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, info_);
       }
+      if (!getToBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, to_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3310,6 +3364,9 @@ public final class ProtoMsg {
       }
       if (!getInfoBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, info_);
+      }
+      if (!getToBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, to_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3333,6 +3390,8 @@ public final class ProtoMsg {
           .equals(other.getFrom());
       result = result && getInfo()
           .equals(other.getInfo());
+      result = result && getTo()
+          .equals(other.getTo());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3351,6 +3410,8 @@ public final class ProtoMsg {
       hash = (53 * hash) + getFrom().hashCode();
       hash = (37 * hash) + INFO_FIELD_NUMBER;
       hash = (53 * hash) + getInfo().hashCode();
+      hash = (37 * hash) + TO_FIELD_NUMBER;
+      hash = (53 * hash) + getTo().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3490,6 +3551,8 @@ public final class ProtoMsg {
 
         info_ = "";
 
+        to_ = "";
+
         return this;
       }
 
@@ -3519,6 +3582,7 @@ public final class ProtoMsg {
         result.result_ = result_;
         result.from_ = from_;
         result.info_ = info_;
+        result.to_ = to_;
         onBuilt();
         return result;
       }
@@ -3576,6 +3640,10 @@ public final class ProtoMsg {
         }
         if (!other.getInfo().isEmpty()) {
           info_ = other.info_;
+          onChanged();
+        }
+        if (!other.getTo().isEmpty()) {
+          to_ = other.to_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -3767,6 +3835,75 @@ public final class ProtoMsg {
   checkByteStringIsUtf8(value);
         
         info_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object to_ = "";
+      /**
+       * <code>string to = 4;</code>
+       */
+      public java.lang.String getTo() {
+        java.lang.Object ref = to_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          to_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string to = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getToBytes() {
+        java.lang.Object ref = to_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          to_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string to = 4;</code>
+       */
+      public Builder setTo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        to_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string to = 4;</code>
+       */
+      public Builder clearTo() {
+        
+        to_ = getDefaultInstance().getTo();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string to = 4;</code>
+       */
+      public Builder setToBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        to_ = value;
         onChanged();
         return this;
       }
@@ -7930,36 +8067,36 @@ public final class ProtoMsg {
       "\014LoginReponse\022\016\n\006result\030\001 \001(\010\022\014\n\004info\030\002 " +
       "\001(\t\"\036\n\tHeartBeat\022\021\n\tsessionid\030\001 \001(\t\";\n\016M" +
       "essageRequest\022\014\n\004from\030\001 \001(\t\022\n\n\002to\030\002 \001(\t\022" +
-      "\017\n\007content\030\003 \001(\t\"=\n\017MessageResponse\022\016\n\006r" +
-      "esult\030\001 \001(\010\022\014\n\004from\030\002 \001(\t\022\014\n\004info\030\003 \001(\t\"" +
-      "2\n\023MessageNotification\022\n\n\002to\030\001 \001(\t\022\017\n\007co" +
-      "ntent\030\002 \001(\t\"!\n\021OnlineUserRequest\022\014\n\004from" +
-      "\030\001 \001(\t\"5\n\022OnlineUserResponse\022\016\n\006result\030\001" +
-      " \001(\010\022\017\n\007content\030\002 \001(\t\"\300\005\n\007Message\0229\n\004typ" +
-      "e\030\001 \001(\0162+.org.situjunjie.chatcommon.bean" +
-      ".msg.MsgType\022\021\n\tsessionid\030\002 \001(\t\022F\n\014login" +
-      "Request\030\003 \001(\01320.org.situjunjie.chatcommo" +
-      "n.bean.msg.LoginRequest\022G\n\rloginResponse" +
-      "\030\004 \001(\01320.org.situjunjie.chatcommon.bean." +
-      "msg.LoginReponse\022@\n\theartBeat\030\005 \001(\0132-.or" +
-      "g.situjunjie.chatcommon.bean.msg.HeartBe" +
-      "at\022J\n\016messageRequest\030\006 \001(\01322.org.situjun" +
-      "jie.chatcommon.bean.msg.MessageRequest\022L" +
-      "\n\017messageResponse\030\007 \001(\01323.org.situjunjie" +
-      ".chatcommon.bean.msg.MessageResponse\022T\n\023" +
-      "messageNotification\030\010 \001(\01327.org.situjunj" +
-      "ie.chatcommon.bean.msg.MessageNotificati" +
-      "on\022P\n\021onlineUserRequest\030\t \001(\01325.org.situ" +
-      "junjie.chatcommon.bean.msg.OnlineUserReq" +
-      "uest\022R\n\022OnlineUserResponse\030\n \001(\01326.org.s" +
-      "itujunjie.chatcommon.bean.msg.OnlineUser" +
-      "Response*\340\001\n\007MsgType\022\021\n\rLOGIN_REQUEST\020\000\022" +
-      "\022\n\016LOGIN_RESPONSE\020\001\022\022\n\016LOGOUT_REQUEST\020\002\022" +
-      "\022\n\016LOGOU_RESPONSE\020\003\022\016\n\nHEART_BEAT\020\004\022\023\n\017M" +
-      "ESSAGE_REQUEST\020\005\022\024\n\020MESSAGE_RESPONSE\020\006\022\030" +
-      "\n\024MESSAGE_NOTIFICATION\020\007\022\027\n\023ONLINE_USER_" +
-      "REQUEST\020\010\022\030\n\024ONLINE_USER_RESPONSE\020\tB\nB\010P" +
-      "rotoMsgb\006proto3"
+      "\017\n\007content\030\003 \001(\t\"I\n\017MessageResponse\022\016\n\006r" +
+      "esult\030\001 \001(\010\022\014\n\004from\030\002 \001(\t\022\014\n\004info\030\003 \001(\t\022" +
+      "\n\n\002to\030\004 \001(\t\"2\n\023MessageNotification\022\n\n\002to" +
+      "\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\"!\n\021OnlineUserReq" +
+      "uest\022\014\n\004from\030\001 \001(\t\"5\n\022OnlineUserResponse" +
+      "\022\016\n\006result\030\001 \001(\010\022\017\n\007content\030\002 \001(\t\"\300\005\n\007Me" +
+      "ssage\0229\n\004type\030\001 \001(\0162+.org.situjunjie.cha" +
+      "tcommon.bean.msg.MsgType\022\021\n\tsessionid\030\002 " +
+      "\001(\t\022F\n\014loginRequest\030\003 \001(\01320.org.situjunj" +
+      "ie.chatcommon.bean.msg.LoginRequest\022G\n\rl" +
+      "oginResponse\030\004 \001(\01320.org.situjunjie.chat" +
+      "common.bean.msg.LoginReponse\022@\n\theartBea" +
+      "t\030\005 \001(\0132-.org.situjunjie.chatcommon.bean" +
+      ".msg.HeartBeat\022J\n\016messageRequest\030\006 \001(\01322" +
+      ".org.situjunjie.chatcommon.bean.msg.Mess" +
+      "ageRequest\022L\n\017messageResponse\030\007 \001(\01323.or" +
+      "g.situjunjie.chatcommon.bean.msg.Message" +
+      "Response\022T\n\023messageNotification\030\010 \001(\01327." +
+      "org.situjunjie.chatcommon.bean.msg.Messa" +
+      "geNotification\022P\n\021onlineUserRequest\030\t \001(" +
+      "\01325.org.situjunjie.chatcommon.bean.msg.O" +
+      "nlineUserRequest\022R\n\022OnlineUserResponse\030\n" +
+      " \001(\01326.org.situjunjie.chatcommon.bean.ms" +
+      "g.OnlineUserResponse*\340\001\n\007MsgType\022\021\n\rLOGI" +
+      "N_REQUEST\020\000\022\022\n\016LOGIN_RESPONSE\020\001\022\022\n\016LOGOU" +
+      "T_REQUEST\020\002\022\022\n\016LOGOU_RESPONSE\020\003\022\016\n\nHEART" +
+      "_BEAT\020\004\022\023\n\017MESSAGE_REQUEST\020\005\022\024\n\020MESSAGE_" +
+      "RESPONSE\020\006\022\030\n\024MESSAGE_NOTIFICATION\020\007\022\027\n\023" +
+      "ONLINE_USER_REQUEST\020\010\022\030\n\024ONLINE_USER_RES" +
+      "PONSE\020\tB\nB\010ProtoMsgb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8002,7 +8139,7 @@ public final class ProtoMsg {
     internal_static_org_situjunjie_chatcommon_bean_msg_MessageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_situjunjie_chatcommon_bean_msg_MessageResponse_descriptor,
-        new java.lang.String[] { "Result", "From", "Info", });
+        new java.lang.String[] { "Result", "From", "Info", "To", });
     internal_static_org_situjunjie_chatcommon_bean_msg_MessageNotification_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_org_situjunjie_chatcommon_bean_msg_MessageNotification_fieldAccessorTable = new

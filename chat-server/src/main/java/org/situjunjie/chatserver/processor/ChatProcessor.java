@@ -21,6 +21,9 @@ public class ChatProcessor {
         if(StringUtils.isEmpty(messageRequest.getTo())){
             //群发消息
             MessageSender.sendMessageToOther(channel,messageRequest.getContent(),messageRequest.getFrom());
+        }else{
+            //私聊消息
+            MessageSender.sendMessageToUser(channel,messageRequest.getContent(),messageRequest.getFrom(),messageRequest.getTo());
         }
     }
 }

@@ -26,4 +26,14 @@ public class ChatProcssor {
                 .setType(ProtoMsg.MsgType.MESSAGE_REQUEST).setMessageRequest(messageRequest).build();
         messageSender.send(msg);
     }
+
+    public void sendPrivateMessage(String message, String userId) {
+        //组装私聊消息
+        String fromId = SimpleClient.session.getUserId();
+        String sessionId = SimpleClient.session.getSessionId();
+        ProtoMsg.MessageRequest messageRequest = ProtoMsg.MessageRequest.newBuilder().setContent(message).setFrom(fromId).setTo(userId).build();
+        ProtoMsg.Message msg = ProtoMsg.Message.newBuilder().setSessionid(sessionId).setTypeValue(ProtoMsg.MsgType.MESSAGE_REQUEST_VALUE)
+                .setType(ProtoMsg.MsgType.MESSAGE_REQUEST).setMessageRequest(messageRequest).build();
+        messageSender.send(msg);
+    }
 }

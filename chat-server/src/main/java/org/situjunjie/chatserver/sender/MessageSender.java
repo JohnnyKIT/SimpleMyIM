@@ -38,4 +38,16 @@ public class MessageSender {
         }
 
     }
+
+    public static void sendMessageToUser(Channel channel, String content, String from, String to) {
+        Map<String, List<ClientSession>> instance = ClientSessionMap.getInstance();
+        List<ClientSession> clientSessions = instance.get(to);
+        ProtoMsg.MessageResponse messageResponse = ProtoMsg.MessageResponse.newBuilder().setFrom(from).setTo(to).setInfo(content).setResult(true)
+                .build();
+        ProtoMsg.Message message = ProtoMsg.Message.newBuilder().setMessageResponse(messageResponse).setType(ProtoMsg.MsgType.MESSAGE_RESPONSE)
+                .setTypeValue(ProtoMsg.MsgType.MESSAGE_RESPONSE_VALUE).build();
+        clientSessions.forEach(session -> {
+            sendMessage(session.getChannel(),message);
+        });
+    }
 }

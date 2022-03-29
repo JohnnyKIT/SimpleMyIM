@@ -24,6 +24,8 @@ public class CommandController {
 
     private LoginUserCommand loginUserCommand = new LoginUserCommand();
 
+    private PrivateChatCommand privateChatCommand = new PrivateChatCommand();
+
     private Map<Integer,BaseCommand> commandMap;
 
 
@@ -44,6 +46,7 @@ public class CommandController {
         commandMap.put(loginCommand.getKey(),loginCommand);
         commandMap.put(chatCommand.getKey(), chatCommand);
         commandMap.put(loginUserCommand.getKey(), loginUserCommand);
+        commandMap.put(privateChatCommand.getKey(), privateChatCommand);
     }
 
     public void run(){
